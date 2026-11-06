@@ -114,3 +114,7 @@ PAGES = [
         ],
     },
 ]
+
+from pages_more import MORE_PAGES  # noqa: E402
+
+PAGES += MORE_PAGES

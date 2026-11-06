@@ -106,9 +106,11 @@ def render_page(p):
     faq = "\n".join(
         f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in p["faq"]
     )
+    same = [o for o in PAGES if o["offer"] == p["offer"] and o["slug"] != p["slug"]]
+    rest = [o for o in PAGES if o["offer"] != p["offer"]]
     others = "\n".join(
         f'<li><a href="{page_url(o["slug"])}">{esc(o["title"])}</a></li>'
-        for o in PAGES if o["slug"] != p["slug"]
+        for o in (same + rest)[:7]
     )
     body = f"""<main class="wrap">
 <nav class="crumb"><a href="{BASE}/">홈</a> › {esc(p["category"])}</nav>
@@ -131,15 +133,22 @@ def render_page(p):
 def render_index():
     jsonld = {"@context": "https://schema.org", "@type": "WebSite",
               "name": config.SITE_NAME, "url": page_url()}
+    cats = []
+    for p in PAGES:
+        if p["category"] not in cats:
+            cats.append(p["category"])
     cards = "\n".join(
-        f'<a class="card" href="{page_url(p["slug"])}"><span class="tag">{esc(p["category"])}</span>'
-        f'<strong>{esc(p["title"])}</strong><span>{esc(p["description"])}</span></a>'
-        for p in PAGES
+        f'<h2>{esc(c)}</h2><div class="cards">' + "".join(
+            f'<a class="card" href="{page_url(p["slug"])}">'
+            f'<strong>{esc(p["title"])}</strong><span>{esc(p["description"])}</span></a>'
+            for p in PAGES if p["category"] == c
+        ) + "</div>"
+        for c in cats
     )
     body = f"""<main class="wrap">
 <h1>{esc(config.SITE_NAME)}</h1>
 <p class="lead">{esc(config.SITE_DESCRIPTION)}</p>
-<div class="cards">{cards}</div>
+{cards}
 </main>
 """
     return head(config.SITE_NAME, config.SITE_DESCRIPTION, page_url(), jsonld) + body + FOOT
