@@ -2,11 +2,11 @@
 #  여기만 고치면 됩니다.
 # ============================================================
 
-# 사이트 주소 (GitHub Pages 기본 주소). 도메인을 사면 바꿔주세요.
-SITE_URL = "https://jachun05-dot.github.io/makeMoney"
+# 사이트 주소
+SITE_URL = "https://alddeul.com"
 
-SITE_NAME = "생활비 줄이는 비교 가이드"
-SITE_DESCRIPTION = "보험, 인터넷, 렌탈, 이사까지 가입 전에 꼭 확인할 것들을 정리한 비교 가이드"
+SITE_NAME = "알뜰 가이드"
+SITE_DESCRIPTION = "보험, 인터넷, 렌탈, 이사까지 가입 전에 꼭 확인할 것들을 정리한 생활비 절약 가이드"
 
 # 구글 서치 콘솔 'HTML 태그' 인증값 (content="..." 안의 값만). 없으면 빈칸.
 GOOGLE_SITE_VERIFICATION = ""

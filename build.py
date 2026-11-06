@@ -183,6 +183,9 @@ def main():
           f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap}\n</urlset>\n')
     write(DIST / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
     write(DIST / ".nojekyll", "")
+    domain = BASE.split("://", 1)[1]
+    if not domain.endswith("github.io") and "/" not in domain:
+        write(DIST / "CNAME", domain + "\n")
     print(f"built {len(urls)} pages -> {DIST}")
 
 
