@@ -6,7 +6,7 @@
 SITE_URL = "https://alddeul.com"
 
 SITE_NAME = "알뜰 가이드"
-SITE_DESCRIPTION = "보험, 인터넷, 렌탈, 이사까지 가입 전에 꼭 확인할 것들을 정리한 생활비 절약 가이드"
+SITE_DESCRIPTION = "보험, 인터넷, 렌탈, 이사, 박람회까지 가입·계약 전에 꼭 확인할 것들을 정리한 생활비 절약 가이드"
 
 # 구글 서치 콘솔 'HTML 태그' 인증값 (content="..." 안의 값만). 없으면 빈칸.
 GOOGLE_SITE_VERIFICATION = ""  # 구글은 Cloudflare DNS로 인증 완료
@@ -22,4 +22,7 @@ CPA_LINKS = {
     "water":    "",  # 정수기 렌탈 상담
     "car":      "",  # 자동차보험 비교
     "moving":   "",  # 이사 견적 비교
+    "wedding_fair":  "",  # 웨딩박람회 사전등록
+    "baby_fair":     "",  # 베이비페어 사전등록
+    "interior_fair": "",  # 인테리어 박람회 사전등록
 }

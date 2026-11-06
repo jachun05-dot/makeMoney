@@ -118,3 +118,7 @@ PAGES = [
 from pages_more import MORE_PAGES  # noqa: E402
 
 PAGES += MORE_PAGES
+
+from pages_fair import FAIR_PAGES  # noqa: E402
+
+PAGES += FAIR_PAGES
