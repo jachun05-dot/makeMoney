@@ -1,0 +1,43 @@
+:root {
+  --bg: #ffffff; --fg: #1d1d1f; --muted: #6b7280; --line: #e5e7eb;
+  --soft: #f5f7fb; --accent: #2563eb; --accent-fg: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111318; --fg: #e9eaee; --muted: #9aa0ab; --line: #2a2e37;
+          --soft: #1a1d24; --accent: #4f8cff; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.75 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all; padding-bottom: 96px; }
+a { color: var(--accent); }
+.top { border-bottom: 1px solid var(--line); padding: 14px 16px; }
+.brand { font-weight: 700; color: var(--fg); text-decoration: none; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 16px; }
+.crumb, .meta { color: var(--muted); font-size: 14px; }
+.crumb a { color: var(--muted); }
+h1 { font-size: 28px; line-height: 1.35; margin: 8px 0; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+.lead { color: var(--muted); }
+section ul, section ol { padding-left: 22px; }
+details { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 8px 0; }
+summary { font-weight: 600; cursor: pointer; }
+.cta { background: var(--soft); border-radius: 14px; padding: 18px; margin: 24px 0; text-align: center; }
+.btn { display: block; background: var(--accent); color: var(--accent-fg); text-decoration: none;
+  font-weight: 700; font-size: 18px; padding: 15px; border-radius: 12px; }
+.btn-off { background: var(--line); color: var(--muted); }
+.cta-sub { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+.ad { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+.cta-sticky { position: fixed; left: 0; right: 0; bottom: 0; margin: 0; border-radius: 0;
+  padding: 10px 16px; border-top: 1px solid var(--line); background: var(--bg); }
+.cta-sticky .cta-sub { display: none; }
+.cta-sticky .btn { max-width: 688px; margin: 0 auto; font-size: 16px; padding: 12px; }
+aside { margin-top: 40px; border-top: 1px solid var(--line); }
+.cards { display: grid; gap: 12px; margin-top: 20px; }
+.card { display: block; border: 1px solid var(--line); border-radius: 14px; padding: 16px;
+  text-decoration: none; color: var(--fg); }
+.card strong { display: block; font-size: 18px; margin: 4px 0; }
+.card span:last-child { color: var(--muted); font-size: 15px; }
+.tag { font-size: 12px; color: var(--accent); font-weight: 700; }
+.foot { max-width: 720px; margin: 40px auto 0; padding: 16px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 13px; }
