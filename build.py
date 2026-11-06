@@ -10,7 +10,9 @@ from pages import PAGES
 
 ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
-TODAY = datetime.date.today().isoformat()
+from zoneinfo import ZoneInfo
+
+TODAY = datetime.datetime.now(ZoneInfo("Asia/Seoul")).date().isoformat()
 BASE = config.SITE_URL.rstrip("/")
 
 
@@ -63,13 +65,23 @@ FOOT = f"""<footer class="foot">
 """
 
 
-def cta_block(p, variant=""):
+def is_ended(p):
+    return bool(p.get("ends")) and p["ends"] < TODAY
+
+
+def cta_block(p, variant="", banner=False):
     link = config.CPA_LINKS.get(p["offer"], "").strip()
-    if link:
-        btn = (f'<a class="btn" href="{esc(link)}" target="_blank" '
-               f'rel="sponsored nofollow noopener">{esc(p["cta"])}</a>')
-    else:
-        btn = '<span class="btn btn-off">상담 링크 준비 중</span>'
+    if is_ended(p):
+        if variant:
+            return ""
+        return f'<div class="cta"><p class="ended">{esc(p.get("ended_msg", "종료된 행사입니다."))}</p></div>'
+    if not link:
+        return ""
+    btn = (f'<a class="btn" href="{esc(link)}" target="_blank" '
+           f'rel="sponsored nofollow noopener">{esc(p["cta"])}</a>')
+    if banner and p.get("banner"):
+        btn = (f'<a href="{esc(link)}" target="_blank" rel="sponsored nofollow noopener">'
+               f'<img class="banner" src="{esc(p["banner"])}" alt="{esc(p["h1"])}"></a>\n') + btn
     return f"""<div class="cta {variant}">
 {btn}
 <p class="cta-sub">{esc(p["cta_sub"])}</p>
@@ -117,8 +129,9 @@ def render_page(p):
 <article>
 <h1>{esc(p["h1"])}</h1>
 <p class="meta">업데이트 {TODAY}</p>
+{cta_block(p, banner=True) if p.get("banner") else ""}
 {p["intro"]}
-{cta_block(p)}
+{"" if p.get("banner") else cta_block(p)}
 {sections}
 <section><h2>자주 묻는 질문</h2>{faq}</section>
 {cta_block(p, "cta-end")}

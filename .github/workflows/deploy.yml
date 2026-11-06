@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "7 15 * * *"  # 매일 00:07 KST 재배포 (종료된 행사 버튼 자동 내림)
 
 permissions:
   contents: read

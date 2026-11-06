@@ -25,4 +25,5 @@ CPA_LINKS = {
     "wedding_fair":  "",  # 웨딩박람회 사전등록
     "baby_fair":     "",  # 베이비페어 사전등록
     "interior_fair": "",  # 인테리어 박람회 사전등록
+    "daegu_baby_fair": "https://iryan.kr/t8hcnhu63w",  # 텐핑: 2026.12 대구 베이비&키즈페어 (12.6 종료)
 }
