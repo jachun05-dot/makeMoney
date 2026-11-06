@@ -192,7 +192,7 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir()
-    shutil.copy(ROOT / "static" / "style.css", DIST / "style.css")
+    shutil.copytree(ROOT / "static", DIST, dirs_exist_ok=True)
 
     write(DIST / "index.html", render_index())
     write(DIST / "about" / "index.html", render_about())
