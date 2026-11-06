@@ -27,6 +27,9 @@ def head(title, description, url, jsonld):
         f'<meta name="google-site-verification" content="{esc(config.GOOGLE_SITE_VERIFICATION)}">'
         if config.GOOGLE_SITE_VERIFICATION else ""
     )
+    if config.NAVER_SITE_VERIFICATION:
+        verify += f'<meta name="naver-site-verification" content="{esc(config.NAVER_SITE_VERIFICATION)}">'
+
     return f"""<!doctype html>
 <html lang="ko">
 <head>

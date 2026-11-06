@@ -9,7 +9,10 @@ SITE_NAME = "알뜰 가이드"
 SITE_DESCRIPTION = "보험, 인터넷, 렌탈, 이사까지 가입 전에 꼭 확인할 것들을 정리한 생활비 절약 가이드"
 
 # 구글 서치 콘솔 'HTML 태그' 인증값 (content="..." 안의 값만). 없으면 빈칸.
-GOOGLE_SITE_VERIFICATION = ""
+GOOGLE_SITE_VERIFICATION = ""  # 구글은 Cloudflare DNS로 인증 완료
+
+# 네이버 서치어드바이저 HTML 태그 인증값
+NAVER_SITE_VERIFICATION = "d73de1fdbf700b5fce86edafddcececa1c59269b"
 
 # CPA 플랫폼(텐핑, 애드픽, 링크프라이스 등)에서 받은 내 전용 링크.
 # 빈칸이면 버튼이 '준비 중'으로 표시됩니다.
